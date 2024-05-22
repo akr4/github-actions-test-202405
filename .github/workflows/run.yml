@@ -1,0 +1,23 @@
+name: Run
+
+on:
+  push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: build
+      run: |
+        cat << EOF > foo.yaml
+        # yaml内コメント
+        numbers:
+          - 1
+          - 2
+        EOF
+        cat foo.yaml
+
